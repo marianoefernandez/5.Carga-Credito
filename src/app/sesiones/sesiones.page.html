@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <body>
+              <!-- fa pls -->
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+      <!-- animate.css -->
+      <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/67239/animate.min.css" rel="stylesheet" />
+
+      <!-- under overlay stuff -->
+      <div class="body"></div>
+      
+
+      <!-- the panel -->
+      <div class="overlay">
+          <div class="tabs tab">
+          
+          </div>
+      <div class="ui-panel login-panel">
+          <header>
+          <div class="left logo">
+              <a><span>Carga</span>Crédito</a>
+          </div>
+          </header>
+          
+          <div class="login-form">
+          <div style="color: white;" class="subtitle">Iniciar Sesión</div>
+          <input class="login-input" type="email" placeholder="Correo" [(ngModel)]="email" />
+          <input class="login-input" type="password" placeholder="Contraseña" [(ngModel)]="clave"/>
+          <span class="error">{{mensajeError}}</span>
+      </div>
+          
+          <footer>
+          <div class="right form-actions">
+              <a (click)="loguearse()" class="ui-button inactive login">Iniciar Sesión</a>
+              <a (click)="accederRapido()" class="ui-button inactive register">Acceso rápido</a>
+          </div>
+          <div class="hr">
+          </div>            
+          <p style="text-align: center;">Creado por Mariano Fernández &copy; 2024</p>
+          </footer>
+          <div class="tabs tab">
+          
+          </div>
+      </div>
+      </div>
+
+      <!-- get dem fancy typefaces -->
+      <script type="text/javascript" src="//use.typekit.net/psm0wvc.js"></script>
+      <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </body>
+</ion-content>
+
+<router-outlet></router-outlet>

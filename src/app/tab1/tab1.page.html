@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title *ngIf="firestore.datosUsuarioActual != null && firestore.datosUsuarioActual.perfil == 'admin'" style="font-size: 18px; margin-bottom:-12px; color:gold">
+      <img *ngIf="firestore.datosUsuarioActual.sexo == 'masculino'" style="border: 2px solid rgb(98, 29, 135); border-radius:50%; margin-right:4px; margin-top:8px;" height="44px" width="44px  " src="https://i.ibb.co/G7G0DMm/hombre.png" alt="../../assets//hombre.png">
+      <img *ngIf="firestore.datosUsuarioActual.sexo == 'femenino'" style="border: 2px solid rgb(98, 29, 135); border-radius:50%; margin-right:4px; margin-top:8px;" height="44px" width="44px  " src="https://i.ibb.co/cN24MWx/mujer.png" alt="../../assets//mujer.png">
+      <p style="margin-top: 0px; margin-bottom: 0px; position:relative; bottom:35px; left:55px">Hola, {{autenticador.usuarioActual.email}}</p>
+    </ion-title>
+    <ion-title *ngIf="firestore.datosUsuarioActual != null && firestore.datosUsuarioActual.perfil != 'admin'" style="font-size: 18px; margin-bottom:-12px; color:rgb(255, 255, 255)">
+      <img *ngIf="firestore.datosUsuarioActual.sexo == 'masculino'" style="border: 2px solid rgb(98, 29, 135); border-radius:50%; margin-right:4px; margin-top:8px;" height="44px" width="44px  " src="https://i.ibb.co/G7G0DMm/hombre.png" alt="../../assets//hombre.png">
+      <img *ngIf="firestore.datosUsuarioActual.sexo == 'femenino'" style="border: 2px solid rgb(98, 29, 135); border-radius:50%; margin-right:4px; margin-top:8px;" height="44px" width="44px  " src="https://i.ibb.co/cN24MWx/mujer.png" alt="../../assets//mujer.png">
+      <p style="margin-top: 0px; margin-bottom: 0px; position:relative; bottom:35px; left:55px">Hola, {{autenticador.usuarioActual.email}}</p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <body style="background-color: rgb(90, 20, 90);">
+    <div class="card contenido">
+      <button (click)="limpiarCreditos()" class="limpiar">Limpiar Créditos</button>
+      <div class="disponible">
+        <h3>Créditos disponibles:</h3>
+      </div>
+
+      <div class="creditos">
+        <h2 *ngIf="!ocultarCreditos">{{this.firestore.cargaUsuarioActual?.creditosTotales}}</h2>
+        <h2 *ngIf="ocultarCreditos">***</h2>
+
+        <!-- <h4 style="font-size: 30px; font-weight:bold" *ngIf="this.firestore.cargaUsuarioActual?.creditosTotales == 1">crédito</h4>
+        <h4 style="font-size: 30px; font-weight:bold" *ngIf="this.firestore.cargaUsuarioActual?.creditosTotales != 1">créditos</h4> -->
+      </div>
+
+      <div>
+        <!-- <label for="">Ocultar: </label> -->
+        <ion-icon (click)="cambiarEstadoCredito()" class="btn-ocultar" aria-hidden="true" name="{{iconoOcultar}}"></ion-icon>
+      </div>
+
+      <button (click)="cambiarEstadoHistorial()" class="boton">{{btnHistorialLabel}}</button>
+
+      <!-- <h4 style="margin-top:8%;font-size:23px" [hidden]="!ocultarHistorial">Para ver el historial de todas las transacciones seleccione el botón de arriba y se abrira aquí mismo una pantalla con todas sus transacciones.</h4> -->
+      <img style="margin-top: 10%;" [hidden]="!ocultarHistorial" src="../../assets/qr.png" height="128px" width="128px" alt="">
+      <div [hidden]="ocultarHistorial" class="card historial-transferencia">
+        <p style="width: 96%; margin-left:2%; font-size:16px" *ngFor="let carga of firestore.cargaUsuarioActual?.cargas; index as i;">{{i+1}}-{{firestore.datosUsuarioActual.email}} cargo {{carga.valor}} creditos ({{obtenerFecha(carga.fecha)}})</p>
+        <p style="width: 96%; margin-left:2%; font-size:25px" *ngIf=" firestore.cargaUsuarioActual != null && firestore.cargaUsuarioActual.cargas.length == 0">No realizo ninguna carga todavía</p>
+      </div>
+
+    </div>
+  </body>
+</ion-content>

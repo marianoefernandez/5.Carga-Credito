@@ -1,0 +1,118 @@
+.contenido
+{
+    min-height: 80%;
+    margin-top: 10%;
+    max-width: 90%;
+    margin-left: 5%;
+    border: 2.5px black solid;
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    background-color: rgb(249, 246, 246);
+}
+
+.historial-transferencia
+{
+    max-width: 90%;
+    border-radius: 20px;
+    min-height:180px;
+    max-height:180px;
+    overflow-y: scroll; 
+    margin-left: 5%;
+    border: 2px black solid;
+    text-align: center;
+}
+
+.disponible
+{
+    margin-top: 4%;
+}
+
+.creditos
+{
+    margin-top: 4%;
+}
+
+label
+{
+    font-size: 25px;
+}
+
+h2
+{
+    font-size: 80px;
+    font-weight: bold;
+}
+
+h3
+{
+    color: rgb(127, 0, 239);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-ocultar
+{
+    height: 48px; 
+    width:48px; 
+    background-color:rgb(188, 172, 172); 
+    opacity: 0.9;
+    border-radius:50%; 
+    border:black 1.5px solid; 
+    margin-top:3%;
+    margin-bottom: 3%;
+}
+
+.btn-ocultar:hover
+{
+    background-color:rgb(167, 153, 153); 
+    border:black 2.5px solid; 
+    opacity: 1;
+}
+
+.boton
+{
+  width:70%;
+  height: 54px;
+  font-size: inherit;
+  margin-left: 15%;
+  margin-bottom: 2%;
+	color:#fff;
+	display:block;
+  text-transform:uppercase;
+  border:none;
+	padding:15px 20px;
+	border-radius:40px;
+  background:rgba(100, 14, 143, 0.712);
+}
+
+.limpiar
+{
+  font-size: 6px;
+  margin-left: 4%;
+  margin-top: 2%;
+	color:#fff;
+	display:block;
+  text-transform:uppercase;
+  border:none;
+	padding:5px 10px;
+	border-radius:40px;
+  background:rgba(57, 55, 55, 0.712);
+}
+
+.historial
+{
+    background:rgba(14, 51, 143, 0.712);
+}
+
+.boton:hover
+{
+    background:rgb(100, 14, 143);
+    border:black 1.5px solid; 
+}
+
+.historial:hover
+{
+    background:rgb(14, 51, 143);
+    border:black 1.5px solid; 
+}
